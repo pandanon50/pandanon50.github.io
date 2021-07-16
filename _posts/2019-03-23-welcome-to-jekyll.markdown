@@ -1,28 +1,31 @@
 ---
 layout: post
-title: "한글 대응 테스트"
+title: "react Native"
 date: 2021-03-23 21:03:36 +0530
-categories: Javascript
+categories: Javascript react reactNative
 ---
 
-가나다라마바사 한글을 써봅시다.
+→ react-navigation-tab-view
 
-```javascript
-const Razorpay = require("razorpay");
-
-let rzp = Razorpay({
-  key_id: "KEY_ID",
-  secret: "name",
-});
-
-// capture request
-rzp.capture(payment_id, cost).then(function (data) {
-  return 2;
-});
+```jsx
+-> npm install @react-navigation/material-top-tabs react-native-tab-view@^2.16.0
 ```
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+→ 기본 인덱스 화면에서 Slide를 적용하기위해 사용
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]: https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+```jsx
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+
+const Tab = createMaterialTopTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
+    </Tab.Navigator>
+  );
+}
+```
+
+→ MainNav → 기존 스택을 Tab으로 변경후 default tabBar를 height 0 으로 지우고 사용
